@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="flex">
+    <app-sidebar></app-sidebar>
+    
+    <div>
+        <div class="mt-6 flex justify-between mx-auto w-[70rem]">
+            <h1 class="text-2xl font-semibold ml-6">Issue</h1>
+            <div class="text-gray-600  text-md ">Filter<span class="text-black ml-2 mr-6 font-semibold">Project</span>
+                <select ng-model="">
+                    <option>
+                    
+                    </option>
+                </select>
+            </div>
+        </div>
+        <div class="flex justify-evenly mt-2">
+        <div class="w-1/4">
+            <div class=" text-2xl font-bold">To do: {{TodoResponse.length}}</div>
+            <div *ngFor="let response of TodoResponse ; let number = index">
+                <app-issuelist 
+                    [date]="TodoResponse[number].created_at.slice(0,10)"
+                    [id]="TodoResponse[number].id" 
+                    [title]="TodoResponse[number].title" 
+                    [description]="TodoResponse[number].description" 
+                    [status]="TodoResponse[number].status" 
+                    [assignee]="TodoResponse[number].assignee">
+                </app-issuelist>
+            </div>
+        </div>
+        <div class="w-1/4">
+            <div class=" text-2xl font-bold">In Progress: {{InprogressResponse.length}}</div>
+            <div *ngFor="let response of InprogressResponse ; let number = index">
+                <app-issuelist 
+                    [date]="InprogressResponse[number].created_at.slice(0,10)"
+                    [id]="InprogressResponse[number].id" 
+                    [title]="InprogressResponse[number].title" 
+                    [description]="InprogressResponse[number].description" 
+                    [status]="InprogressResponse[number].status" 
+                    [assignee]="InprogressResponse[number].assignee">
+                </app-issuelist>
+            </div>   
+        </div>
+        <div class="w-1/4">
+            <div class=" text-2xl font-bold">Done: {{DoneResponse.length}}</div>
+            <div *ngFor="let response of DoneResponse ; let number = index">
+                 <app-issuelist 
+                    [date]="DoneResponse[number].created_at.slice(0,10)"
+                    [id]="DoneResponse[number].id" 
+                    [title]="DoneResponse[number].title" 
+                    [description]="DoneResponse[number].description" 
+                    [status]="DoneResponse[number].status" 
+                    [assignee]="DoneResponse[number].assignee">
+                </app-issuelist>
+            </div> 
+        </div>
+    </div>
+</div>

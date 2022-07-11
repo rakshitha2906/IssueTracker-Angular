@@ -1,0 +1,15 @@
+<div class="bg-slate-900 text-white pr-8 pl-4 pt-6 h-full ">
+    <div class="flex py-4 px-8 " [routerLinkActive]="'menuList'" [routerLinkActiveOptions]="{exact:true}">
+        <img src="../../../assets/img/Dashboard.svg">
+        <button class="ml-5 " routerLink="">Dashboard </button>
+    </div>
+    <div class="flex py-4 px-8 " [routerLinkActive]="'menuList'">
+        <img src="../../../assets/img/Issues.svg">
+        <button class="ml-5" routerLink="/issues"> Issues </button>
+    </div>
+    <div class="flex py-4 px-8" [routerLinkActive]="'menuList'">
+        <img src="../../../assets/img/Create.svg">
+        <button class="ml-5" routerLink="/create"> Create </button>
+    </div>
+</div>
+

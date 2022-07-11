@@ -1,0 +1,39 @@
+<div class="mt-8 flex justify-between">
+    <h1 class="text-2xl font-semibold ml-6">Dashboard</h1>
+    <div class="text-gray-600 -mt-2 text-md">for<span class="text-black ml-2 mr-6">January 2019</span></div>
+    </div>
+<div class="mt-6">
+    <img src="../../../assets/img/chart.png">
+</div>
+<div class="flex justify-evenly ">
+    <div class="w-1/4">
+        <div class="w-fit text-2xl font-bold">High Priority</div>
+        <div *ngFor="let response of TodoResponse ; let number = index" >
+            <app-issuetype 
+                [date]="TodoResponse[number].created_at.slice(0,10)"
+                [title]="TodoResponse[number].title" 
+                [description]="TodoResponse[number].description" >
+            </app-issuetype>
+        </div>
+    </div>
+    <div class="w-1/4">
+        <div class="w-fit text-2xl font-bold">Recently updated issues</div>
+        <div *ngFor="let response of InprogressResponse ; let number = index" >
+            <app-issuetype 
+                [date]="InprogressResponse[number].created_at.slice(0,10)"
+                [title]="InprogressResponse[number].title" 
+                [description]="InprogressResponse[number].description" >
+            </app-issuetype>
+        </div>
+    </div>
+    <div class="w-1/4">
+        <div class="w-fit text-2xl font-bold">All issues</div>
+        <div *ngFor="let response of DoneResponse ; let number = index" >
+            <app-issuetype 
+                [date]="DoneResponse[number].created_at.slice(0,10)"
+                [title]="DoneResponse[number].title" 
+                [description]="DoneResponse[number].description" >
+            </app-issuetype>
+        </div>
+    </div>
+</div>
